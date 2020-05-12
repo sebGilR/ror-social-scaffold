@@ -1,0 +1,16 @@
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @requests.each do |request| %>
+      <tr>
+        <td><%= request.user.name %></td>
+        <td><%= button_to "Accept", friendship_path(request, confirmed: 1), method: :put %></td>
+        <td><%= button_to "Decline", friendship_path(request, confirmed: 0), method: :put %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
